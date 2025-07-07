@@ -10,6 +10,9 @@ finish-args:
   - --socket=wayland
   - --device=dri
   - --share=network
+  - --talk-name=org.freedesktop.portal.OpenURI
+  - --filesystem=xdg-documents:ro
+  - --filesystem=xdg-download:ro
 modules:
   - name: tipitaka_pali_reader
     buildsystem: simple
@@ -30,11 +33,17 @@ modules:
       - install -Dm644 tpr/org.americanmonk.TipitakaPaliReader.desktop /app/share/applications/org.americanmonk.TipitakaPaliReader.desktop
     sources:
       - type: archive
-        path: tpr_82.tar.gz
-        url: https://github.com/bksubhuti/tipitaka-pali-reader/releases/download/v2.6.5%2B82/tpr_82.tar.gz            
-        sha256: fd5237888a2e7534c201a677a47e2070aef7d8f58f6aaaebd064291d12b296a3
+        path: tpr_92.tar.gz
+        url: https://github.com/bksubhuti/tipitaka-pali-reader/releases/download/v2.7.1%2B92/tpr_92.tar.gz          
+        sha256: dc1a202d5ec58b2192637cd8cc17f660f5c9ee737865215998ab24b480e5ab45
         dest: "tpr"
 
 # - type: archive
 #   url: https://github.com/bksubhuti/tipitaka-pali-reader/releases/download/v.2.3.5.56/tpr.tar.gz
 #        path: tpr1.5.9.59.tar.gz
+
+#  commands
+#  sha256sum tpr_XX.tar.gz
+#  flatpak-builder --force-clean build-dir org.americanmonk.TipitakaPaliReader.yml
+#  flatpak-builder --run build-dir org.americanmonk.TipitakaPaliReader.yml tipitaka_pali_reader
+
